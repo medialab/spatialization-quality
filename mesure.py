@@ -31,7 +31,7 @@ def readGEXFintoMatrix(path) :
         M[a][b] = 1 #w['weight']
         M[b][a] = 1 #w['weight']
     return (M, nodes, hashnodes)
-  
+
 def saveMatrixintoGEXF(M, nodes, hashnodes, path) :
 	G2 = nx.DiGraph()
 	for i, (nid, data) in enumerate(nodes):
@@ -42,18 +42,18 @@ def saveMatrixintoGEXF(M, nodes, hashnodes, path) :
 			b = hashnodes[ntargetid]
 			G2.add_edge(nsourceid, ntargetid, weight=M[a][b])
 	nx.write_gexf(G2, path)
-    
-    
+
+
 
 def lignes(M) :					#Nombres de lignes
 	return range(len(M))
-	
+
 def cols(M) : 					#Nombre de colonnes
 	return range(len(M[0]))
-	
+
 def transpose(M) : 				#Transposee de la matrice
 	return [[M[i][j] for i in lignes(M)] for j in cols(M) ]
-	
+
 def msom(A,B) :					#Somme de deux matrices
 	if lignes(A) != lignes(B) or cols(A) != cols(B) :
 		return "Pas cool"
@@ -62,7 +62,7 @@ def msom(A,B) :					#Somme de deux matrices
 
 def mscal(M,k) :				#Produit par un scalaire
 	return[[k * M[i][j] for j in cols(M)] for i in lignes(M)]
-	
+
 def mprod(A,B) :				#Produit de deux matrices
 	if cols(A) != lignes(B) :
 		return "Pas cool"
@@ -84,14 +84,14 @@ def mpuis(A,n) :				#Puissance de la matrice
 
 def inv(M) :					#Presque-Inverse terme à terme
 	return [[1/(M[i][j]+1) for j in cols(M)] for i in lignes(M)]
-	
+
 def mesure(M,prec) :			#Calcul de la mesure jusqu'au rang Prec
 	C =unite(len(M))
 	for i in range(prec) :
 		C= msom(C,mscal(mpuis(M,i+1),(len(M)-1) ** (1-i)))
-	return C	
-	
-def affiche(M) : 				#Affichage plus sympa des matrices
+	return C
+
+def affiche(M) :                #Affichage plus sympa des matrices
 	for j in cols(M) :
 		print(M[j])
 
@@ -106,13 +106,13 @@ def adj(n) :					#Crée une matrice d'adjacence
 			print(i+1, "est connecté avec", j+1)
 			M[i][j]= int(input("Oui(1) ou Non(0)"))
 	return msom(M,transpose(M))
-	
-	
+
+
 def union(A,B) :				#A définir et à refaire plus tard...#
 	n=unite(lignes(A))
 	M=zeros(n)
 	if lignes(A) != lignes(B) : return "Pas cool"
-	else : 
+	else :
 		M=zeros(n)
 		for i in range(n) :
 			for j in range(i+1,n) :
