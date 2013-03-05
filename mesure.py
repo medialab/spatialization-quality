@@ -12,10 +12,13 @@ def run(sourceFile, targetFile) :
         print("OK")
 
 def readGEXFintoMatrix(path) :
-    try:
-        G = nx.read_gexf(path)
-    except Exception as e:
-        return "Fichier pas cool %s : %s" % (path, e)
+    from cStringIO import StringIO
+    sio = StringIO()
+    for line in open(path):
+        if "<viz:color" not in line:
+            print >>sio, line
+    sio.seek(0)
+    G = nx.read_gexf(sio)
     hashnodes = {}
     nodes = [(0, {}) for i in G.nodes()]
     for i, (nid, data) in enumerate(G.nodes(data=True)):
