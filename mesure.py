@@ -118,3 +118,7 @@ def union(A,B) :				#A définir et à refaire plus tard...#
 			for j in range(i+1,n) :
 				M[i][j]=max(A[i][j],B[i][j])
 	return M
+
+if __name__ == "__main__":
+    import sys
+    run(sys.argv[1], sys.argv[2])
