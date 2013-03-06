@@ -11,7 +11,10 @@ graph.nodes.forEach(function(n){
 	xmax = Math.max(xmax, n.x)
 	ymin = Math.min(ymin, n.y)
 	ymax = Math.max(ymax, n.y)
+
 	n.diff = 0
+	n.geoDist = 0
+	n.idealDistNorm = 0
 })
 
 // Compute the distances
@@ -47,24 +50,17 @@ graph.edges.forEach(function(edge){
 	if(edge.source.id < edge.target.id){
 		// edge.normIdeal = (edge.idealDist - idealaverage) / idealratio
 		// edge.normGeo = (edge.geoDist - geoaverage) / georatio
-		edge.diff = edge.geoDist - normratio * edge.idealDist
+		edge.idealDistNorm = normratio * edge.idealDist
+		edge.diff = edge.geoDist - edge.idealDistNorm
+		
+		edge.source.idealDistNorm += edge.idealDistNorm
+		edge.target.idealDistNorm += edge.idealDistNorm
+		
+		edge.source.geoDist += edge.geoDist
+		edge.target.geoDist += edge.geoDist
+
 		edge.source.diff += edge.diff
 		edge.target.diff += edge.diff
-		/*var color
-		if(edge.idealDist>=idealaverage){
-			color = 'rgba(0, '+Math.round(255 * (edge.idealDist-idealaverage) / (idealmax-idealaverage) )+', 0, 0.1)'
-		} else {
-			color = 'rgba('+Math.round(255 * (idealaverage - edge.idealDist) / (idealaverage - idealmin) )+', 0, 0, 0.1)'
-		}
-		svg.line(
-			edge.source.x,
-			edge.source.y,
-			edge.target.x,
-			edge.target.y,
-			{
-				stroke:color
-			}
-		);*/
 	}
 })
 
@@ -76,7 +72,17 @@ graph.nodes.forEach(function(n){
 	nodediffmax = Math.max(nodediffmax, n.diff)
 })
 
-var colorRange = [chroma.hex('#FF8C67'), chroma.hex('#BBBBBB'), chroma.hex('#09D557')]
+var nodeSettings = {
+	size: 20
+	,label: {
+		fontSize: 14
+		,x: 22
+		,y: -10
+		,h: 20
+	}
+}
+
+var colorRange = [chroma.hex('#DE3C73'), chroma.hex('#999999'), chroma.hex('#1D7FA7')]
 graph.nodes.forEach(function(node){
 	var color
 	if(node.diff<=0){
@@ -97,11 +103,82 @@ graph.nodes.forEach(function(node){
 
 
 	svg.circle(
-		node.x,
-		node.y,
-		20,
-		{
-			fill: color.hex()
-		}
-	)
+			node.x
+			,node.y
+			,nodeSettings.size
+			,{
+				fill: color.hex()
+			}
+		)
+
+	svg.text(
+			node.x + nodeSettings.label.x
+			,node.y + nodeSettings.label.y + 0.3 * nodeSettings.label.fontSize
+			,'g:'+Math.round(node.geoDist/1000)+'K'
+			,{
+				'font-family': "Courier New"
+				,'font-size': nodeSettings.label.fontSize
+			}
+		)
+
+	svg.text(
+			node.x + nodeSettings.label.x
+			,node.y + nodeSettings.label.y + 0.3 * nodeSettings.label.fontSize + nodeSettings.label.h
+			,'i:'+Math.round(node.idealDistNorm/1000)+'K'
+			,{
+				'font-family': "Courier New"
+				,'font-size': nodeSettings.label.fontSize
+			}
+		)
+})
+
+// Key
+var keySettings = {
+	position:{
+		x: xmin
+		,y: ymax + 60
+	}
+	,block:{
+		w: 50
+		,h: 30
+	}
+	,text:{
+		leftMargin: 5
+		,fontSize: 40
+	}
+	,h: 40
+}
+
+colorRange.forEach(function(color, i){
+	var text
+	switch(i){
+		case 0:
+			text = 'Too close (geo < ideal in average)'
+			break
+		case 1:
+			text = 'At the right distance (geo = ideal in average)'
+			break
+		case 2:
+			text = 'Too far (geo > ideal in average)'
+			break
+	}
+
+	svg.rect(
+			keySettings.position.x
+			,keySettings.position.y + i * keySettings.h
+			,keySettings.block.w
+			,keySettings.block.h
+			,0,0
+			,{
+				fill: color.hex()
+			}
+		)
+	svg.text(
+			keySettings.position.x + keySettings.block.w + keySettings.text.leftMargin
+			,keySettings.position.y + i * keySettings.h + 0.5 * keySettings.block.h + 0.3 * keySettings.text.fontSize
+			,text
+			,{
+				'font-size': keySettings.text.fontSize
+			}
+		)
 })
