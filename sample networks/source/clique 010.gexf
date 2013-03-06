@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gexf xmlns="http://www.gexf.net/1.2draft" version="1.2" xmlns:viz="http://www.gexf.net/1.2draft/viz" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.gexf.net/1.2draft http://www.gexf.net/1.2draft/gexf.xsd">
+  <meta lastmodifieddate="2012-12-17">
+    <creator>Gephi 0.8.1</creator>
+    <description></description>
+  </meta>
+  <graph defaultedgetype="directed" mode="static">
+    <nodes>
+      <node id="1" label="n0">
+        <attvalues></attvalues>
+        <viz:size value="1.0"></viz:size>
+        <viz:position x="20.758049" y="11.752252" z="0.0"></viz:position>
+        <viz:color r="153" g="153" b="153"></viz:color>
+      </node>
+      <node id="2" label="n1">
+        <attvalues></attvalues>
+        <viz:size value="1.0"></viz:size>
+        <viz:position x="-9.786856" y="20.018494" z="0.0"></viz:position>
+        <viz:color r="153" g="153" b="153"></viz:color>
+      </node>
+      <node id="3" label="n2">
+        <attvalues></attvalues>
+        <viz:size value="1.0"></viz:size>
+        <viz:position x="6.5015345" y="21.335772" z="0.0"></viz:position>
+        <viz:color r="153" g="153" b="153"></viz:color>
+      </node>
+      <node id="4" label="n3">
+        <attvalues></attvalues>
+        <viz:size value="1.0"></viz:size>
+        <viz:position x="-19.741861" y="-11.550434" z="0.0"></viz:position>
+        <viz:color r="153" g="153" b="153"></viz:color>
+      </node>
+      <node id="5" label="n4">
+        <attvalues></attvalues>
+        <viz:size value="1.0"></viz:size>
+        <viz:position x="-5.7136607" y="-21.254938" z="0.0"></viz:position>
+        <viz:color r="153" g="153" b="153"></viz:color>
+      </node>
+      <node id="6" label="n5">
+        <attvalues></attvalues>
+        <viz:size value="1.0"></viz:size>
+        <viz:position x="23.080177" y="-7.323757" z="0.0"></viz:position>
+        <viz:color r="153" g="153" b="153"></viz:color>
+      </node>
+      <node id="7" label="n6">
+        <attvalues></attvalues>
+        <viz:size value="1.0"></viz:size>
+        <viz:position x="-22.009535" y="7.152742" z="0.0"></viz:position>
+        <viz:color r="153" g="153" b="153"></viz:color>
+      </node>
+      <node id="8" label="n7">
+        <attvalues></attvalues>
+        <viz:size value="1.0"></viz:size>
+        <viz:position x="-6.2374887" y="0.21383652" z="0.0"></viz:position>
+        <viz:color r="153" g="153" b="153"></viz:color>
+      </node>
+      <node id="9" label="n8">
+        <attvalues></attvalues>
+        <viz:size value="1.0"></viz:size>
+        <viz:position x="7.6325603" y="-0.16518697" z="0.0"></viz:position>
+        <viz:color r="153" g="153" b="153"></viz:color>
+      </node>
+      <node id="10" label="n9">
+        <attvalues></attvalues>
+        <viz:size value="1.0"></viz:size>
+        <viz:position x="10.567974" y="-20.09731" z="0.0"></viz:position>
+        <viz:color r="153" g="153" b="153"></viz:color>
+      </node>
+    </nodes>
+    <edges>
+      <edge source="1" target="2">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="1" target="3">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="1" target="4">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="1" target="5">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="1" target="6">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="1" target="7">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="1" target="8">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="1" target="9">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="1" target="10">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="2" target="3">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="2" target="4">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="2" target="5">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="2" target="6">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="2" target="7">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="2" target="8">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="2" target="9">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="2" target="10">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="3" target="4">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="3" target="5">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="3" target="6">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="3" target="7">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="3" target="8">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="3" target="9">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="3" target="10">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="4" target="5">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="4" target="6">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="4" target="7">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="4" target="8">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="4" target="9">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="4" target="10">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="5" target="6">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="5" target="7">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="5" target="8">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="5" target="9">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="5" target="10">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="6" target="7">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="6" target="8">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="6" target="9">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="6" target="10">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="7" target="8">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="7" target="9">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="7" target="10">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="8" target="9">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="8" target="10">
+        <attvalues></attvalues>
+      </edge>
+      <edge source="9" target="10">
+        <attvalues></attvalues>
+      </edge>
+    </edges>
+  </graph>
+</gexf>
